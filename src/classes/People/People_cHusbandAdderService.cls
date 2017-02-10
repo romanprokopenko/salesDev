@@ -14,7 +14,7 @@ public with sharing class People_cHusbandAdderService {
         Set<Id> husbandsIdSet = getHusbandsSet(peopleList);
 
         //then we need to get map of that husbands to change their Husband_Wife__c lately
-        Map<Id, People__c> husbandsIds = new Map<Id, People__c>([SELECT Husband_Wife__c FROM People__c WHERE Id IN :husbandsIdSet]);\
+        Map<Id, People__c> husbandsIds = new Map<Id, People__c>([SELECT Husband_Wife__c FROM People__c WHERE Id IN :husbandsIdSet]);
 
         //for each item in people list we must search his candidate husband in map and set husband.husband to current human id
         for (People__c human : peopleList) {
